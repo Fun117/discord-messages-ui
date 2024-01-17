@@ -1,12 +1,20 @@
 {
-  "name": "discord-messages-ui",
+  "name": "discord-msg-ui-beta",
   "version": "0.1.0",
-  "author": "Your Name",
+  "author": "Fun117",
+  "main": "src/components/discord-messages-ui/DiscordMsg.tsx",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Fun117/discord-massage-ui.git"
   },
+  "keywords": [
+    "discord",
+    "message",
+    "UI",
+    "component",
+    "React"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
