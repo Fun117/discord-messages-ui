@@ -1,0 +1,12 @@
+# .npmignore
+
+node_modules/
+build/
+dist/
+coverage/
+docs/
+.vscode/
+.eslintignore
+.eslintrc
+.gitignore
+README.md

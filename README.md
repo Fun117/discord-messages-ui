@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DiscordMsg Component
 
-## Getting Started
+[![MIT License][license-image]][license-url]
 
-First, run the development server:
+The DiscordMsg component is a React component designed to represent Discord-style messages and interactions. This versatile and extensible component allows easy integration of messages, buttons, and interactive elements, enabling developers to create Discord-like user interfaces seamlessly.
+
+**this project is for educational purposes only**
+
+# table of contents
+
+-  [DiscordMsg Component](#discordmsg-component)
+-  [table of contents](#table-of-contents)
+-  [Installation](#installation)
+    -  [npm](#npm)
+    -  [yarn](#yarn)
+-  [change log](#change-log)
+-  [Usage](#usage)
+    -  [construct the ui](#construct-the-ui)
+    -  [sample code](#sample-code)
+-  [Tutorial Create ui](#tutorial-create-ui)
+    -  [step1](#messages)
+    -  [step2](#message)
+    -  [step3](#interaction)
+    -  [step4](#content)
+    -  [step5](#button)
+    -  [step6](#usage-example)
+-  [advantages](#advantages)
+-  [Contributors](#contributors)
+
+# Installation
+
+## npm
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm I discord-messages-ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn add discord-messages-ui
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<hr/>
 
-## Learn More
+# change log
 
-To learn more about Next.js, take a look at the following resources:
+-  0.1.0
+    - Added modules for message display
+<hr/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## construct the ui
 
-## Deploy on Vercel
+<img src="./public/assets/img/discordMsg_bot_openAi_1.png" />
+<img src="./public/assets/img/discordMsg_bot_npm_1.png" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## sample code
+```tsx
+<DiscordMsg type="messages">
+    <DiscordMsg type="message" mention={true}>
+        <DiscordMsg type="interaction" cmdName={`command`} userName={`Fun117`} iconUrl={`/assets/img/@Fun117_icon.png`}/>
+        <DiscordMsg type="content" mode="group">
+            <DiscordMsg type="content" mode="logo" iconUrl={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+            <DiscordMsg type="content" mode="body">
+                <DiscordMsg type="content" mode="bot" userName="npm"/>
+                <DiscordMsg type="content" mode="msg">
+                    @user description
+                </DiscordMsg>
+                <DiscordMsg type="content" mode="buttons">
+                    <DiscordMsg type="button" mode="primary" event="false">Click me?</DiscordMsg>
+                    <DiscordMsg type="button" mode="primary">primary</DiscordMsg>
+                    <DiscordMsg type="button" mode="secondary">secondary</DiscordMsg>
+                    <DiscordMsg type="button" mode="success">success</DiscordMsg>
+                    <DiscordMsg type="button" mode="danger">danger</DiscordMsg>
+                    <DiscordMsg type="button" mode="link" content={`https://google.com`}>Link</DiscordMsg>
+                </DiscordMsg>
+            </DiscordMsg>
+        </DiscordMsg>
+    </DiscordMsg>
+</DiscordMsg>
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Tutorial Create UI
+
+Welcome to the tutorial on creating Discord-style UI using the `DiscordMsg` component. This tutorial will guide you through the steps to construct a simple and dynamic Discord-like interface for your React-based projects.
+
+## Messages
+- Use this to group multiple message components.
+```tsx
+<DiscordMsg type="messages">
+    {/* Include individual message components here */}
+</DiscordMsg>
+```
+
+## Message
+- Use this to represent a single message.
+- Add the `mention` prop if the message should mention someone.
+```tsx
+<DiscordMsg type="message" mention={true}>
+    {/* Include content, interactions, or buttons here */}
+</DiscordMsg>
+```
+
+## Interaction
+- Use this to show an interaction, such as a command usage.
+- Include `cmdName` `userName` and `iconUrl` props.
+```tsx
+<DiscordMsg type="interaction" cmdName={`command`} userName={`Fun117`} iconUrl={`/assets/img/@Fun117_icon.png`}/>
+```
+
+## Content
+- Use this to display message content.
+- Specify mode as `group` `logo` `body` or `buttons`.
+- Use nested `DiscordMsg` components for structured content.
+```tsx
+<DiscordMsg type="content" mode="group">
+    {/* Include nested content components here */}
+</DiscordMsg>
+```
+
+## Button
+- Use this for clickable buttons.
+- Specify mode as `primary` `secondary` `success` `danger` or `link`.
+- Add `event` prop to disable the button if needed.
+```tsx
+<DiscordMsg type="button" mode="primary" event="false">Click me?</DiscordMsg>
+```
+
+## Usage Example
+- Assemble the components as needed for your Discord-style UI.
+```tsx
+<DiscordMsg type="messages">
+    <DiscordMsg type="message" mention={true}>
+        <DiscordMsg type="interaction" cmdName={`command`} userName={`Fun117`} iconUrl={`/assets/img/@Fun117_icon.png`}/>
+        <DiscordMsg type="content" mode="group">
+            <DiscordMsg type="content" mode="logo" iconUrl={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+            {/* Add more content components as needed */}
+        </DiscordMsg>
+    </DiscordMsg>
+</DiscordMsg>
+```
+
+Now you have a step-by-step guide on creating a Discord-style UI using the `DiscordMsg` component. Feel free to customize and expand upon these examples to suit your specific project requirements.
+
+<hr/>
+
+# advantages
+
+- Highly visible UI
+- Easy to customize
+- Dynamically resizable
+- Can be created with short code
+
+# Contributors
+
+-  [Fun117](https://github.com/fun117)
+
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: ./LICENSE.txt
