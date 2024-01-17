@@ -6,8 +6,8 @@ The DiscordMsg component is a React component designed to represent Discord-styl
 
 ## language
 
-- [English](./README/en.md)
-- [日本語](./README/ja.md)
+- [English](./en.md)
+- [日本語](./ja.md)
 
 # table of contents
 
@@ -59,8 +59,8 @@ yarn add discord-messages-ui
 
 ## construct the ui
 
-<img src="./public/assets/img/discordMsg_bot_openAi_1.png" />
-<img src="./public/assets/img/discordMsg_bot_npm_1.png" />
+<img src="../public/assets/img/discordMsg_bot_openAi_1.png" />
+<img src="../public/assets/img/discordMsg_bot_npm_1.png" />
 
 ## sample code
 ```tsx
