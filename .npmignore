@@ -10,3 +10,7 @@ docs/
 .eslintrc
 .gitignore
 README.md
+README/
+README
+
+install-package.js

@@ -1,8 +1,9 @@
 {
   "name": "discord-msg-ui-beta",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Fun117",
-  "main": "src/components/discord-messages-ui/DiscordMsg.tsx",
+  "description": "The DiscordMsg component is a React component designed to represent Discord-style messages and interactions. This versatile and extensible component allows easy integration of messages, buttons, and interactive elements, enabling developers to create Discord-like user interfaces seamlessly.",
+  "main": "install-package.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
     "React"
   ],
   "scripts": {
+    "preinstall": "node install-package.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

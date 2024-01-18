@@ -53,6 +53,9 @@ yarn add discord-messages-ui
 -  0.1.1
     - Added Japanese version to README
     - Fixed repository URL
+-  0.1.2
+    - Added code to inquire about the installation directory
+    - Added description
 <hr/>
 
 # Usage

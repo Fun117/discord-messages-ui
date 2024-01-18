@@ -52,7 +52,10 @@ yarn add discord-messages-ui
     - メッセージ表示用モジュールを追加
 -  0.1.1
     - READMEに日本語版を追加
-    - リポジトリURLを修正 
+    - リポジトリURLを修正
+-  0.1.2
+    - インストールディレクトを尋ねるコードの追加
+    - descriptionを追加
 <hr/>
 
 # 使用方法
