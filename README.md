@@ -1,5 +1,7 @@
 # DiscordMsg Component
 
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-downloads-url]
 [![MIT License][license-image]][license-url]
 
 The DiscordMsg component is a React component designed to represent Discord-style messages and interactions. This versatile and extensible component allows easy integration of messages, buttons, and interactive elements, enabling developers to create Discord-like user interfaces seamlessly.
@@ -8,6 +10,11 @@ The DiscordMsg component is a React component designed to represent Discord-styl
 
 - [English](./README/en.md)
 - [日本語](./README/ja.md)
+
+## Package Information
+For the latest package information, please refer to the [GitHub readme](https://github.com/Fun117/discord-messages-ui#readme).
+
+Packages `v0.1.8` and later may not function properly. Make sure to update to at least `v0.1.8`.
 
 # table of contents
 
@@ -176,5 +183,11 @@ Now you have a step-by-step guide on creating a Discord-style UI using the `Disc
 
 -  [Fun117](https://github.com/fun117)
 
+[npm-version-image]: https://badge.fury.io/js/discord-msg-ui-beta.svg
+[npm-url]: https://www.npmjs.com/package/discord-msg-ui-beta
+[npm-version-image]: https://img.shields.io/npm/v/discord-msg-ui-beta.svg?style=flat
+[npm-url]: https://npmjs.org/package/discord-msg-ui-beta
+[npm-downloads-image]: https://img.shields.io/npm/dm/discord-msg-ui-beta.svg?style=flat
+[npm-downloads-url]: https://npmcharts.com/compare/discord-msg-ui-beta?minimal=true
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: ./LICENSE.txt
+[license-url]: ../LICENSE.txt

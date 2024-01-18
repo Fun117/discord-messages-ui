@@ -1,5 +1,7 @@
 # DiscordMsg コンポーネント
 
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-downloads-url]
 [![MIT License][license-image]][license-url]
 
 DiscordMsg コンポーネントは、Discord スタイルのメッセージとインタラクションを表現するための React コンポーネントです。この多目的かつ拡張可能なコンポーネントは、メッセージ、ボタン、および対話的な要素を簡単に統合できるように設計されており、開発者は Discord 風のユーザーインターフェースをシームレスに作成できます。
@@ -8,6 +10,12 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
 
 - [English](./en.md)
 - [日本語](./ja.md)
+
+## パッケージ情報
+
+最新のパッケージ情報は[GitHubのreadme](https://github.com/Fun117/discord-messages-ui#readme)を確認してください。
+
+パッケージ `v0.1.8` 以降は正常に機能しない可能性があります。必ず `v0.1.8` 以上にアップデートしてください。
 
 # 目次
 
@@ -30,6 +38,8 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
     -  [step6](#使用例)
 -  [利点](#利点)
 -  [貢献者](#貢献者)
+
+<hr/>
 
 # インストール
 
@@ -66,6 +76,7 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
     - インストールディレクトを尋ねるコードの追加
     - descriptionを追加
 -  0.1.3 ~ 0.1.8
+
 <hr/>
 
 # 使用方法
@@ -176,5 +187,11 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
 
 -  [Fun117](https://github.com/fun117)
 
+[npm-version-image]: https://badge.fury.io/js/discord-msg-ui-beta.svg
+[npm-url]: https://www.npmjs.com/package/discord-msg-ui-beta
+[npm-version-image]: https://img.shields.io/npm/v/discord-msg-ui-beta.svg?style=flat
+[npm-url]: https://npmjs.org/package/discord-msg-ui-beta
+[npm-downloads-image]: https://img.shields.io/npm/dm/discord-msg-ui-beta.svg?style=flat
+[npm-downloads-url]: https://npmcharts.com/compare/discord-msg-ui-beta?minimal=true
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: ./LICENSE.txt
+[license-url]: ../LICENSE.txt

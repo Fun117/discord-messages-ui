@@ -1,6 +1,6 @@
 {
   "name": "discord-msg-ui-beta",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "Fun117",
   "description": "The DiscordMsg component is a React component designed to represent Discord-style messages and interactions. This versatile and extensible component allows easy integration of messages, buttons, and interactive elements, enabling developers to create Discord-like user interfaces seamlessly.",
   "main": "src/components/discord-messages-ui-beta/DiscordMsg.tsx",
