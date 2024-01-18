@@ -36,13 +36,13 @@ The DiscordMsg component is a React component designed to represent Discord-styl
 ## npm
 
 ```bash
-npm i discord-messages-ui
+npm i discord-msg-ui-beta
 ```
 
 ## yarn
 
 ```bash
-yarn add discord-messages-ui
+yarn add discord-msg-ui-beta
 ```
 
 ## Components are not generated?

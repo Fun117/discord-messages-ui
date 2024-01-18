@@ -36,13 +36,13 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
 ## npm
 
 ```bash
-npm i discord-messages-ui
+npm i discord-msg-ui-beta
 ```
 
 ## yarn
 
 ```bash
-yarn add discord-messages-ui
+yarn add discord-msg-ui-beta
 ```
 
 ## コンポーネントが生成されない？
