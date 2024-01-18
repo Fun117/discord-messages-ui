@@ -1,52 +1,26 @@
-// install-component.js
 const fs = require('fs');
 const path = require('path');
+const fse = require('fs-extra');
 
-function askInstallDirectory() {
-    const readline = require('readline').createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-
-    return new Promise((resolve) => {
-        readline.question('Where is your component file? (e.g., app/component): ', (answer) => {
-        readline.close();
-        resolve(answer.trim());
-        });
-    });
+function createDirectoryIfNotExists(directory) {
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
 }
 
-function copyFileAsync(source, destination) {
-    return new Promise((resolve, reject) => {
-        const readStream = fs.createReadStream(source);
-        const writeStream = fs.createWriteStream(destination);
+const installDirectory = process.argv[2] || 'src/components';
 
-        readStream.on('error', reject);
-        writeStream.on('error', reject);
+createDirectoryIfNotExists(installDirectory);
 
-        readStream.pipe(writeStream);
+const sourceFolder = path.join(__dirname, 'src/components/discord-messages-ui-beta/');
+const destinationFolder = path.join(installDirectory, 'discord-messages-ui-beta');
 
-        writeStream.on('finish', resolve);
-    });
+try {
+    fse.copySync(sourceFolder, destinationFolder, { overwrite: true });
+    console.log('Copy successful!');
+} catch (error) {
+    console.error('Copy error:', error.message);
 }
 
-async function installComponent() {
-    const installDirectory = await askInstallDirectory();
-    const sourcePath = path.join(__dirname, 'src', 'components', 'discord-messages-ui');
-    const destinationPath = path.join(process.cwd(), installDirectory);
 
-    if (!fs.existsSync(destinationPath)) {
-        fs.mkdirSync(destinationPath, { recursive: true });
-    }
-
-    const files = fs.readdirSync(sourcePath);
-    for (const file of files) {
-        const sourceFile = path.join(sourcePath, file);
-        const destinationFile = path.join(destinationPath, file);
-        await copyFileAsync(sourceFile, destinationFile);
-    }
-
-    console.log('Component installed successfully!');
-}
-
-installComponent();
+console.log(`Component installed in ${installDirectory}`);

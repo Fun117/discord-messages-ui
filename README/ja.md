@@ -16,6 +16,7 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
 -  [インストール](#インストール)
     -  [npm](#npm)
     -  [yarn](#yarn)
+    -  [コンポーネントが生成されない？](#コンポーネントが生成されない)
 -  [変更履歴](#変更履歴)
 -  [使用方法](#使用方法)
     -  [UI の構築](#ui-の構築)
@@ -44,6 +45,14 @@ npm I discord-messages-ui
 yarn add discord-messages-ui
 ```
 
+## コンポーネントが生成されない？
+
+プロジェクトのルートディレクトリーで以下のコマンドを実行することで生成されます。
+
+```bash
+node ./node_modules/discord-msg-ui-beta/install-package.js
+```
+
 <hr/>
 
 # 変更履歴
@@ -56,6 +65,7 @@ yarn add discord-messages-ui
 -  0.1.2
     - インストールディレクトを尋ねるコードの追加
     - descriptionを追加
+-  0.1.3 ~ 0.1.8
 <hr/>
 
 # 使用方法
