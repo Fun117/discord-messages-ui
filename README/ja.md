@@ -36,7 +36,7 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
 ## npm
 
 ```bash
-npm I discord-messages-ui
+npm i discord-messages-ui
 ```
 
 ## yarn
