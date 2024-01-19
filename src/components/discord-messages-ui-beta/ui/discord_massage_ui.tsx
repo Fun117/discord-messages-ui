@@ -129,7 +129,6 @@ export const DiscordMsg = ({ type, mode, mention, event, content, cmdName, userN
     };
 };
 DiscordMsg.propTypes = {
-    lang: PropTypes.string,
     type: PropTypes.oneOf(['messages', 'message', 'interaction', 'content','button']).isRequired,
     mention: PropTypes.bool,
     event: PropTypes.string,
@@ -140,4 +139,113 @@ DiscordMsg.propTypes = {
     mode: PropTypes.string,
     children: PropTypes.node,
 };
-export default DiscordMsg;
+
+export const DIscordMsgEmbed = ({ type, mode, children, className, content, color }) => {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    var currentDay = ('0' + currentDate.getDate()).slice(-2);
+    if(type === 'link'){
+        return (
+            <a href={content} target={mode ? mode : '_blank'}>{children}</a>
+        )
+    }else{if(type === 'div'){
+        return (
+            <div className={className}>{children}</div>
+        )
+    }else{if(type === 'timestamp'){
+        if(mode === 'yy/MM/dd'){
+            return (
+                <>
+                    {currentYear}/{currentMonth}/{currentDay}
+                </>
+            )
+        }else{
+            return (
+                <>
+                    {currentMonth}/{currentDay}/{currentYear}
+                </>
+            )
+        };
+    }else{if(type === 'embed'){
+        return (
+            <div className="discord-embed">
+                <div className="discord-embed-left-border" style={{ backgroundColor: `${color}` }}/>
+                <div className="discord-embed-container">
+                    {children}
+                </div>
+            </div>
+        );
+    }else{if(type === 'contents'){
+        if(mode){
+            if(mode==='title' || mode==='description' || mode==='fields' || mode==='field' || mode==='field-title'){
+                return (
+                    <div className={`discord-embed-${mode}`}>
+                        {children}
+                    </div>
+                )
+            }else{if(mode === 'icon'){
+                return (
+                    <img src={content} className='discord-embed-image' alt='img'/>
+                )
+            }else{if(mode === 'thumbnail'){
+                return (
+                    <img src={content} className='discord-embed-thumbnail' alt='img'/>
+                )
+            }else{if(mode === 'author'){
+                return (
+                    <div className="discord-embed-author">
+                        {children}
+                    </div>
+                )
+            }else{if(mode === 'author-icon'){
+                return (
+                    <img src={content} className="discord-embed-author-icon" alt="img"/>
+                )
+            }else{if(mode === 'addFields'){
+                return (
+                    <div className="discord-embed-field discord-embed-field-inline">
+                        {children}
+                    </div>
+                )
+            }}}}}};
+        }else{
+            return (
+                <div className="discord-embed-content">
+                    {children}
+                </div>
+            );
+        };
+    }else{if(type === 'footer'){
+        if(mode){
+            if(mode === 'icon'){
+                return (
+                    <img src={content} className='discord-embed-footer-icon' alt='icon'/>
+                )
+            }else{
+                if(mode === 'content'){
+                    return (
+                        <span>
+                            {children}
+                        </span>
+                    )
+                };
+            };
+        }else{
+            return (
+                <div className="discord-embed-footer">
+                    {children}
+                </div>
+            )
+        };
+    };};};};};};
+    console.log(`error`)
+};
+DIscordMsgEmbed.propTypes = {
+    type: PropTypes.oneOf(['link','div','timestamp','embed','contents','footer']).isRequired,
+    mode: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.string,
+    content: PropTypes.string,
+};

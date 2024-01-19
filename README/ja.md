@@ -27,7 +27,7 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
     -  [コンポーネントが生成されない？](#コンポーネントが生成されない)
 -  [変更履歴](#変更履歴)
 -  [使用方法](#使用方法)
-    -  [UI の構築](#ui-の構築)
+    -  [UI](#ui)
     -  [サンプルコード](#サンプルコード)
 -  [チュートリアル UI 作成](#チュートリアル-ui-作成)
     -  [step1](#メッセージグループ)
@@ -36,6 +36,20 @@ DiscordMsg コンポーネントは、Discord スタイルのメッセージと�
     -  [step4](#コンテンツ)
     -  [step5](#ボタン)
     -  [step6](#使用例)
+-  [Embeds](#embeds)
+    -  [UI](#embeds-ui)
+    -  [サンプルコード](#embedsサンプルコード)
+-  [Embedsのガイド](#embedsのガイド)
+    -  [Author情報の追加](#embeds---author情報の追加)
+    -  [embedのタイトルの追加](#embedのタイトルの追加)
+    -  [embedの説明の追加](#embedの説明の追加)
+    -  [アイコンの追加](#embeds---アイコンの追加)
+    -  [コンテンツの追加](#embeds---コンテンツの追加)
+    -  [サムネイルの追加](#embeds---サムネイルの追加)
+    -  [フィールドの追加](#embeds---フィールドの追加)
+-  [書式クラス](#書式クラス)
+    -  [メンション](#メンション)
+    -  [バッククオート](#バッククオートバックチルダ)
 -  [利点](#利点)
 -  [貢献者](#貢献者)
 
@@ -75,16 +89,19 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
 -  0.1.2
     - インストールディレクトを尋ねるコードの追加
     - descriptionを追加
--  0.1.3 ~ 0.1.8
+-  0.1.3 ~ 0.1.9
+-  0.2.0
+    - Embedsを追加
+    - EmbedsコンポーネントまたはHTML要素をコンテンツとして追加できる機能を追加
 
 <hr/>
 
 # 使用方法
 
-## UI の構築
+## UI
 
-<img src="../public/assets/img/discordMsg_bot_openAi_1.png" />
-<img src="../public/assets/img/discordMsg_bot_npm_1.png" />
+<img src="../public/assets/img/discordMsg_bot_openAi_1.png"/>
+<img src="../public/assets/img/discordMsg_bot_npm_1.png"/>
 
 ## サンプルコード
 ```tsx
@@ -174,7 +191,185 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
 
 これで、`DiscordMsg` コンポーネントを使用して Discord 風の UI を作成する手順が分かりました。これらの例をカスタマイズしてプロジェクトの要件に合わせて展開してください。
 
+# Embeds
+
+Embedsを使用するにはコンテンツ[body](#サンプルコード)要素の中にコンポーネントを追加します。
+
+```tsx
+<DiscordMsg type="content" mode="body">
+    ...
+    {/* Embedsコンポーネント */}
+    ...
+</DiscordMsg>
+```
+
+## Embeds UI
+
+<img src="../public/assets/img/discordMsg_bot_npm_embed.png"/>
+
+## Embedsサンプルコード
+
+```tsx
+<DIscordMsgEmbed type="embed" color={`rgb(0, 153, 255)`}>
+    <DIscordMsgEmbed type="contents">
+        <DIscordMsgEmbed type="div">
+            <DIscordMsgEmbed type="contents" mode="author">
+                <DIscordMsgEmbed type="contents" mode="author-icon" content={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+                <DIscordMsgEmbed type="link" content={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}>
+                    Some name
+                </DIscordMsgEmbed>
+            </DIscordMsgEmbed>
+            <DIscordMsgEmbed type="contents" mode="title">
+            Some title
+            </DIscordMsgEmbed>
+            <DIscordMsgEmbed type="contents" mode="description">
+            Some description
+            </DIscordMsgEmbed>
+            <DIscordMsgEmbed type="contents" mode="fields">
+                <DIscordMsgEmbed type="contents" mode="field">
+                    <DIscordMsgEmbed type="contents" mode="field-title">
+                    Regular field title
+                    </DIscordMsgEmbed>
+                    Some value here
+                </DIscordMsgEmbed>
+                <DIscordMsgEmbed type="contents" mode="addFields">
+                    <DIscordMsgEmbed type="contents" mode="field-title">
+                    Inline field title
+                    </DIscordMsgEmbed>
+                    Some value here
+                </DIscordMsgEmbed>
+                <DIscordMsgEmbed type="contents" mode="addFields">
+                    <DIscordMsgEmbed type="contents" mode="field-title">
+                    Inline field title
+                    </DIscordMsgEmbed>
+                    Some value here
+                </DIscordMsgEmbed>
+                <DIscordMsgEmbed type="contents" mode="addFields">
+                    <DIscordMsgEmbed type="contents" mode="field-title">
+                    Inline field title
+                    </DIscordMsgEmbed>
+                    Some value here
+                </DIscordMsgEmbed>
+            </DIscordMsgEmbed>
+            <DIscordMsgEmbed type="contents" mode="icon" content={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+        </DIscordMsgEmbed>
+        <DIscordMsgEmbed type="contents" mode="thumbnail" content={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+    </DIscordMsgEmbed>
+    <DIscordMsgEmbed type="footer">
+        <DIscordMsgEmbed type="footer" mode="icon" content={`https://static-production.npmjs.com/58a19602036db1daee0d7863c94673a4.png`}/>
+        <DIscordMsgEmbed type="footer" mode="content">
+            <DIscordMsgEmbed type="timestamp"/>
+        </DIscordMsgEmbed>
+    </DIscordMsgEmbed>
+</DIscordMsgEmbed>
+```
+
+# Embedsのガイド
+
+Embedsは、Discordメッセージのデザインをより豊かにするための機能です。以下は、Embedsを使用したコードのサンプルとその説明です。
+
+### Embedsの基本構造
+
+Embedsは、以下のように基本的な構造を持っています。
+
+```tsx
+<DIscordMsgEmbed type="embed" color={`rgb(0, 153, 255)`}>
+    {/* コンテンツの追加 */}
+</DIscordMsgEmbed>
+```
+
+### Embeds - コンテンツの追加
+
+Embeds内には、様々なコンテンツを追加できます。以下は、代表的なコンテンツのサンプルです。
+
+## Embeds - Author情報の追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="author">
+    <DIscordMsgEmbed type="contents" mode="author-icon" content={`AuthorのアイコンURL`}/>
+    <DIscordMsgEmbed type="link" content={`AuthorのリンクURL`}>
+        Authorの名前
+    </DIscordMsgEmbed>
+</DIscordMsgEmbed>
+```
+
+## Embedのタイトルの追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="title">
+    タイトルの内容
+</DIscordMsgEmbed>
+```
+
+## Embedの説明の追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="description">
+    説明の内容
+</DIscordMsgEmbed>
+```
+
+## Embedのフィールドの追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="fields">
+    {/* フィールドの追加 */}
+</DIscordMsgEmbed>
+```
+
+## Embeds - アイコンの追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="icon" content={`アイコンのURL`}/>
+```
+
+## Embeds - サムネイルの追加
+```tsx
+<DIscordMsgEmbed type="contents" mode="thumbnail" content={`サムネイルのURL`}/>
+```
+
+## Embeds - フィールドの追加
+
+Embeds内でフィールドを追加する場合、以下のように追加できます。
+
+```tsx
+<DIscordMsgEmbed type="contents" mode="fields">
+    <DIscordMsgEmbed type="contents" mode="field">
+        <DIscordMsgEmbed type="contents" mode="field-title">
+            フィールドのタイトル
+        </DIscordMsgEmbed>
+        フィールドの内容
+    </DIscordMsgEmbed>
+    {/* 他のフィールドも同様に追加可能 */}
+</DIscordMsgEmbed>
+```
+
+### フッターの追加
+Embedsの最後にフッターを追加できます。
+
+```tsx
+<DIscordMsgEmbed type="footer">
+    <DIscordMsgEmbed type="footer" mode="icon" content={`フッターのアイコンURL`}/>
+    <DIscordMsgEmbed type="footer" mode="content">
+        <DIscordMsgEmbed type="timestamp"/>
+    </DIscordMsgEmbed>
+</DIscordMsgEmbed>
+```
+
 <hr/>
+
+# 書式クラス
+
+## メンション
+
+文字列がメンションとして表示されます。この機能はDiscordのメンションのUIです。
+
+```tsx
+<span className="discord-mention">TEXT</span>
+```
+
+## バッククオート（バックチルダ）
+
+文字列がコードとして表示されます。この機能は、プログラミング言語やコードの一部を文章中に埋め込む際に便利です。また、コード以外にもテキストを特定のスタイルで強調したい場合にも使用できます。
+
+```tsx
+<span className="markdown-code">TEXT</span>
+```
 
 # 利点
 
@@ -186,6 +381,8 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
 # 貢献者
 
 -  [Fun117](https://github.com/fun117)
+
+**Translation: ChatGPT 3.5**
 
 [npm-version-image]: https://badge.fury.io/js/discord-msg-ui-beta.svg
 [npm-url]: https://www.npmjs.com/package/discord-msg-ui-beta
