@@ -1,41 +1,44 @@
 {
   "name": "discord-msg-ui-beta",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "author": "Fun117",
-  "main": "src/components/discord-messages-ui/DiscordMsg.tsx",
+  "description": "The DiscordMsg component is a React component designed to represent Discord-style messages and interactions. This versatile and extensible component allows easy integration of messages, buttons, and interactive elements, enabling developers to create Discord-like user interfaces seamlessly.",
+  "main": "src/components/discord-messages-ui-beta/DiscordMsg.tsx",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Fun117/discord-massage-ui.git"
+    "url": "git+https://github.com/Fun117/discord-messages-ui.git"
   },
   "keywords": [
     "discord",
     "message",
     "UI",
     "component",
-    "React"
+    "React",
+    "Next.js"
   ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "node install-package.js"
   },
   "dependencies": {
+    "fs-extra": "^11.2.0",
+    "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "typescript": "^5"
   },
   "publishConfig": {
     "access": "public"

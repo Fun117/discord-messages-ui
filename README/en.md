@@ -8,8 +8,8 @@ The DiscordMsg component is a React component designed to represent Discord-styl
 
 ## Language
 
-- [English](./README/en.md)
-- [日本語](./README/ja.md)
+- [English](./en.md)
+- [日本語](./ja.md)
 
 ## Package Information
 
@@ -102,8 +102,8 @@ node ./node_modules/discord-msg-ui-beta/install-package.js
 
 ## UI
 
-<img src="./public/assets/img/discordMsg_bot_openAi_1.png"/>
-<img src="./public/assets/img/discordMsg_bot_npm_1.png"/>
+<img src="../public/assets/img/discordMsg_bot_openAi_1.png"/>
+<img src="../public/assets/img/discordMsg_bot_npm_1.png"/>
 
 ## Sample Code
 ```tsx
@@ -209,7 +209,7 @@ To use Embeds, add the component within the content [body](#sample-code) element
 
 ## Embeds UI
 
-<img src="./public/assets/img/discordMsg_bot_npm_embed.png"/>
+<img src="../public/assets/img/discordMsg_bot_npm_embed.png"/>
 
 ## Embeds Sample Code
 
@@ -393,4 +393,4 @@ The string is displayed as code. This feature is useful for embedding programmin
 [npm-downloads-image]: https://img.shields.io/npm/dm/discord-msg-ui-beta.svg?style=flat
 [npm-downloads-url]: https://npmcharts.com/compare/discord-msg-ui-beta?minimal=true
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: ./LICENSE.txt
+[license-url]: ../LICENSE.txt

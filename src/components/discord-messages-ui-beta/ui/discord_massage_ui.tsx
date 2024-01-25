@@ -1,8 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import '../css/discord_message_ui.css'
+import PropTypes, { Validator } from 'prop-types';
+import '../css/discord_message_ui.css';
 
-export const DiscordMsg = ({ type, mode, mention, event, content, cmdName, userName, iconUrl, children }) => {
+type DiscordMsgProps = {
+    type?: 'messages' | 'message' | 'interaction' | 'content' | 'button';
+    mention?: boolean;
+    event?: string;
+    content?: string;
+    cmdName?: string;
+    userName?: string;
+    iconUrl?: string;
+    mode?: string;
+    children?: React.ReactNode;
+};
+
+export const DiscordMsg: React.FC<DiscordMsgProps> = ({ type, mode, mention, event, content, cmdName, userName, iconUrl, children }) => {
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
     var currentMonth = ('0' + (currentDate.getMonth() + 1)).slice(-2);
@@ -129,8 +141,7 @@ export const DiscordMsg = ({ type, mode, mention, event, content, cmdName, userN
     };
 };
 DiscordMsg.propTypes = {
-    lang: PropTypes.string,
-    type: PropTypes.oneOf(['messages', 'message', 'interaction', 'content','button']).isRequired,
+    type: PropTypes.oneOf(['messages', 'message', 'interaction', 'content', 'button']) as Validator<DiscordMsgProps['type']>,
     mention: PropTypes.bool,
     event: PropTypes.string,
     content: PropTypes.string,
@@ -140,4 +151,122 @@ DiscordMsg.propTypes = {
     mode: PropTypes.string,
     children: PropTypes.node,
 };
-export default DiscordMsg;
+
+
+type DIscordMsgEmbedProps = {
+    type?: 'link' | 'div' | 'timestamp' | 'embed' | 'contents' | 'footer';
+    mode?: string;
+    className?: string;
+    content?: string;
+    color?: string;
+    children?: React.ReactNode;
+};
+export const DIscordMsgEmbed: React.FC<DIscordMsgEmbedProps> = ({ type, mode, content, className, color, children }) => {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    var currentDay = ('0' + currentDate.getDate()).slice(-2);
+    if(type === 'link'){
+        return (
+            <a href={content} target={mode ? mode : '_blank'}>{children}</a>
+        )
+    }else{if(type === 'div'){
+        return (
+            <div className={className}>{children}</div>
+        )
+    }else{if(type === 'timestamp'){
+        if(mode === 'yy/MM/dd'){
+            return (
+                <>
+                    {currentYear}/{currentMonth}/{currentDay}
+                </>
+            )
+        }else{
+            return (
+                <>
+                    {currentMonth}/{currentDay}/{currentYear}
+                </>
+            )
+        };
+    }else{if(type === 'embed'){
+        return (
+            <div className="discord-embed">
+                <div className="discord-embed-left-border" style={{ backgroundColor: `${color}` }}/>
+                <div className="discord-embed-container">
+                    {children}
+                </div>
+            </div>
+        );
+    }else{if(type === 'contents'){
+        if(mode){
+            if(mode==='title' || mode==='description' || mode==='fields' || mode==='field' || mode==='field-title'){
+                return (
+                    <div className={`discord-embed-${mode}`}>
+                        {children}
+                    </div>
+                )
+            }else{if(mode === 'icon'){
+                return (
+                    <img src={content} className='discord-embed-image' alt='img'/>
+                )
+            }else{if(mode === 'thumbnail'){
+                return (
+                    <img src={content} className='discord-embed-thumbnail' alt='img'/>
+                )
+            }else{if(mode === 'author'){
+                return (
+                    <div className="discord-embed-author">
+                        {children}
+                    </div>
+                )
+            }else{if(mode === 'author-icon'){
+                return (
+                    <img src={content} className="discord-embed-author-icon" alt="img"/>
+                )
+            }else{if(mode === 'addFields'){
+                return (
+                    <div className="discord-embed-field discord-embed-field-inline">
+                        {children}
+                    </div>
+                )
+            }}}}}};
+        }else{
+            return (
+                <div className="discord-embed-content">
+                    {children}
+                </div>
+            );
+        };
+    }else{if(type === 'footer'){
+        if(mode){
+            if(mode === 'icon'){
+                return (
+                    <img src={content} className='discord-embed-footer-icon' alt='icon'/>
+                )
+            }else{
+                if(mode === 'content'){
+                    return (
+                        <span>
+                            {children}
+                        </span>
+                    )
+                };
+            };
+        }else{
+            return (
+                <div className="discord-embed-footer">
+                    {children}
+                </div>
+            )
+        };
+    };};};};};};
+    console.log(`error`)
+};
+DIscordMsgEmbed.propTypes = {
+    type: PropTypes.oneOf(['link','div','timestamp','embed','contents','footer']) as Validator<DIscordMsgEmbedProps['type']>,
+    mode: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.string,
+    content: PropTypes.string,
+};

@@ -126,7 +126,15 @@
 }
 
 .discord-embed .discord-embed-content {
-	display: flex
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+@media (min-width: 1024px) {
+	.discord-embed .discord-embed-content {
+		display: flex;
+		flex-direction: row;
+	}
 }
 
 .discord-embed .discord-embed-content .discord-embed-author {
@@ -743,4 +751,13 @@
 	color: inherit;
 	font-size: .9em;
 	padding: .2em
+}
+
+.markdown-code {
+	color: #dee0fc;
+    background-color: #2a2a2ae4;
+    font-weight: 500;
+    padding: 1px 3px;
+    border-radius: 3px;
+    transition: background-color 50ms ease-out, color 50ms ease-out;
 }
