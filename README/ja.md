@@ -390,7 +390,7 @@ Embedsの最後にフッターを追加できます。
 [npm-url]: https://www.npmjs.com/package/discord-msg-ui-beta
 [npm-version-image]: https://img.shields.io/npm/v/discord-msg-ui-beta.svg?style=flat
 [npm-url]: https://npmjs.org/package/discord-msg-ui-beta
-[npm-downloads-image]: https://img.shields.io/npm/dm/discord-msg-ui-beta.svg?style=flat
+[npm-downloads-image]: https://img.shields.io/npm/dt/discord-msg-ui-beta.svg?style=flat
 [npm-downloads-url]: https://npmcharts.com/compare/discord-msg-ui-beta?minimal=true
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: ../LICENSE.txt
